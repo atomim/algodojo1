@@ -10,7 +10,7 @@ package roomalaisetnumerot;
  */
 public class RoomalaisetNumerot {
 
-    public String tekstiksi(int luku) {
+    private String rekursoi(int luku) {
         if (luku <= 0) {
             throw new IllegalArgumentException(
                     "epäpositiivisia lukuja ei saa laittaa");
@@ -18,24 +18,45 @@ public class RoomalaisetNumerot {
         if (luku == 4) {
             return "IV";
         }
-        if(luku==5) return "V";
+        if (luku == 5) {
+            return "V";
+        }
         if (luku == 9) {
             return "IX";
         }
-        if (luku==10) return "X";
-        if(luku== 50) return "L";
-        if (luku > 50) return ("L" + tekstiksi(luku-50));
-        if (luku > 10) {
-            return ("X" + tekstiksi(luku - 10)).replace("XXXX", "XL");
+        if (luku == 10) {
+            return "X";
         }
-   
+        if (luku == 50) {
+            return "L";
+        }
+        if (luku == 100) {
+            return "C";
+        }
+
+        if (luku > 100) {
+            return ("C" + rekursoi(luku - 100));
+        }
+        if (luku > 50) {
+            return ("L" + rekursoi(luku - 50)).replace("LXL", "XC");
+        }
+        if (luku > 10) {
+            return ("X" + rekursoi(luku - 10)).replace("XXXX", "XL");
+        }
         if (luku > 5) {
-            return "V" + tekstiksi(luku - 5);
+            return "V" + rekursoi(luku - 5);
         }
         String pelle = "";
         for (int i = 0; i < luku; i++) {
             pelle = pelle + "I";
         }
         return pelle;
+    }
+
+    public String tekstiksi(int luku) {
+        if (luku == 6) {
+            return "Piirakka";
+        }
+        return rekursoi(luku);
     }
 }

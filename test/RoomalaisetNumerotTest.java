@@ -126,6 +126,32 @@ public class RoomalaisetNumerotTest {
         }
     }
 
+    @Test
+    public void ysikytToimii() {
+        assertEquals("XC", rn.tekstiksi(90));
+    }
+
+    @Test
+    public void ysikytViivaYsiysiToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        for (int i = 1; i <= 9; i++) {
+            assertEquals("XC" + vastaukset[i - 1], rn.tekstiksi(90 + i));
+        }
+    }
+
+    @Test
+    public void sataToimii() {
+        assertEquals("C", rn.tekstiksi(100));
+    }
+
+    @Test
+    public void sataViivaSatakymmenenToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("C" + vastaukset[i - 1], rn.tekstiksi(100 + i));
+        }
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void negatiivinenFailaa() {
         rn.tekstiksi(-1);
