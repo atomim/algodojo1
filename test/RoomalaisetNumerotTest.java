@@ -44,6 +44,11 @@ public class RoomalaisetNumerotTest {
     }
 
     @Test
+    public void kutonenToimii() {
+        assertEquals("VI", rn.tekstiksi(6));
+    }
+
+    @Test
     public void seiskaToimii() {
         assertEquals("VII", rn.tekstiksi(7));
     }
@@ -159,6 +164,8 @@ public class RoomalaisetNumerotTest {
         assertEquals("CXL", rn.tekstiksi(140));
         assertEquals("CLXIX", rn.tekstiksi(169));
         assertEquals("CXCII", rn.tekstiksi(192));
+        assertEquals("CMXIX", rn.tekstiksi(919));
+        assertEquals("DCCXLIV", rn.tekstiksi(744));
     }
     
     @Test

@@ -11,10 +11,16 @@ package roomalaisetnumerot;
 public class RoomalaisetNumerot {
 
     private String rekursoi(int luku) {
-        if (luku <= 0) {
-            throw new IllegalArgumentException(
-                    "epäpositiivisia lukuja ei saa laittaa");
+        if (luku >= 10) {
+            String lol = rekursoi(luku / 10);
+            lol = lol.replace("C", "M").replace("X", "C").replace("L", "D").replace("V", "L").replace("I", "X");
+            return lol + rekursoi(luku % 10);
         }
+        String vastaukset[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        if (luku == luku) {
+            return vastaukset[luku];
+        }
+
         if (luku == 4) {
             return "IV";
         }
@@ -36,7 +42,7 @@ public class RoomalaisetNumerot {
         if (luku == 500) {
             return "D";
         }
-        
+
         if (luku > 500) {
             return ("D" + rekursoi(luku - 500)).replace("DCD", "CM");
         }
@@ -60,8 +66,9 @@ public class RoomalaisetNumerot {
     }
 
     public String tekstiksi(int luku) {
-        if (luku == 6) {
-            return "Piirakka";
+        if (luku <= 0) {
+            throw new IllegalArgumentException(
+                    "Epäpositiivisia lukuja ei saa laittaa");
         }
         return rekursoi(luku);
     }
