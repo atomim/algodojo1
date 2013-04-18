@@ -17,8 +17,9 @@ public class RoomalaisetNumerot {
         if (luku == 9) {
             return "IX";
         }
+        
         if (luku >= 10) {
-            return "X" + tekstiksi(luku - 10);
+            return ("X"+tekstiksi(luku - 10)).replace("XXXX", "XL");
         }
         if (luku >= 5) {
             return "V" + tekstiksi(luku - 5);

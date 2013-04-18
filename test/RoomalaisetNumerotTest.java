@@ -81,4 +81,9 @@ public class RoomalaisetNumerotTest {
             assertEquals("XXX" + vastaukset[i - 1], rn.tekstiksi(30 + i));
         }
     }
+    
+    @Test
+    public void nelkytToimii() {
+        assertEquals("XL", rn.tekstiksi(40));
+    }
 }
