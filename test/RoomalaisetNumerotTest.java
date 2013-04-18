@@ -43,5 +43,20 @@ public class RoomalaisetNumerotTest {
         assertEquals("V", rn.tekstiksi(5));
     }
     
+    @Test
+    public void seiskaToimii() {
+        assertEquals("VII", rn.tekstiksi(7));
+    }
+    
+    @Test
+    public void ysiToimii() {
+        assertEquals("IX", rn.tekstiksi(9));
+    }
+    
+    @Test
+    public void kymppiToimii() {
+        assertEquals("X", rn.tekstiksi(10));
+    }
+    
     
 }

@@ -12,6 +12,10 @@ public class RoomalaisetNumerot {
 
     public String tekstiksi(int luku) {
         if(luku == 4) return "IV";
+        if(luku == 9) return "IX";
+        
+        if(luku == 10) return "X";
+        
         if(luku >= 5) return "V" + tekstiksi(luku - 5);
         String pelle = "";
         for (int i = 0; i < luku; i++) {
