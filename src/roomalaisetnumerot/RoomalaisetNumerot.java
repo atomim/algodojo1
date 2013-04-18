@@ -11,15 +11,19 @@ package roomalaisetnumerot;
 public class RoomalaisetNumerot {
 
     public String tekstiksi(int luku) {
+        if (luku < 0) {
+            throw new IllegalArgumentException(
+                    "Negatiivisia lukuja ei voi kirjoittaa roomalaisittain.");
+        }
         if (luku == 4) {
             return "IV";
         }
         if (luku == 9) {
             return "IX";
         }
-        
+
         if (luku >= 10) {
-            return ("X"+tekstiksi(luku - 10)).replace("XXXX", "XL");
+            return ("X" + tekstiksi(luku - 10)).replace("XXXX", "XL");
         }
         if (luku >= 5) {
             return "V" + tekstiksi(luku - 5);

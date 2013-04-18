@@ -86,4 +86,9 @@ public class RoomalaisetNumerotTest {
     public void nelkytToimii() {
         assertEquals("XL", rn.tekstiksi(40));
     }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void negatiivinenFailaa() {
+        rn.tekstiksi(-1);
+    }
 }
