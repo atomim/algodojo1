@@ -60,29 +60,17 @@ public class RoomalaisetNumerotTest {
 
     @Test
     public void yhdestätoistaKahteenkymmeneenToimii() {
-        assertEquals("XI", rn.tekstiksi(11));
-        assertEquals("XII", rn.tekstiksi(12));
-        assertEquals("XIII", rn.tekstiksi(13));
-        assertEquals("XIV", rn.tekstiksi(14));
-        assertEquals("XV", rn.tekstiksi(15));
-        assertEquals("XVI", rn.tekstiksi(16));
-        assertEquals("XVII", rn.tekstiksi(17));
-        assertEquals("XVIII", rn.tekstiksi(18));
-        assertEquals("XIX", rn.tekstiksi(19));
-        assertEquals("XX", rn.tekstiksi(20));
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("X" + vastaukset[i - 1], rn.tekstiksi(10 + i));
+        }
     }
 
     @Test
     public void kaksyhdestKolmeenkymppiinToimii() {
-        assertEquals("XXI", rn.tekstiksi(21));
-        assertEquals("XXII", rn.tekstiksi(22));
-        assertEquals("XXIII", rn.tekstiksi(23));
-        assertEquals("XXIV", rn.tekstiksi(24));
-        assertEquals("XXV", rn.tekstiksi(25));
-        assertEquals("XXVI", rn.tekstiksi(26));
-        assertEquals("XXVII", rn.tekstiksi(27));
-        assertEquals("XXVIII", rn.tekstiksi(28));
-        assertEquals("XXIX", rn.tekstiksi(29));
-        assertEquals("XXX", rn.tekstiksi(30));
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("XX" + vastaukset[i - 1], rn.tekstiksi(20 + i));
+        }
     }
 }
