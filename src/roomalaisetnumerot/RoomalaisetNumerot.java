@@ -11,21 +11,25 @@ package roomalaisetnumerot;
 public class RoomalaisetNumerot {
 
     public String tekstiksi(int luku) {
-        if (luku < 0) {
+        if (luku <= 0) {
             throw new IllegalArgumentException(
-                    "Negatiivisia lukuja ei voi kirjoittaa roomalaisittain.");
+                    "epäpositiivisia lukuja ei saa laittaa");
         }
         if (luku == 4) {
             return "IV";
         }
+        if(luku==5) return "V";
         if (luku == 9) {
             return "IX";
         }
-
-        if (luku >= 10) {
+        if (luku==10) return "X";
+        if(luku== 50) return "L";
+        if (luku > 50) return ("L" + tekstiksi(luku-50));
+        if (luku > 10) {
             return ("X" + tekstiksi(luku - 10)).replace("XXXX", "XL");
         }
-        if (luku >= 5) {
+   
+        if (luku > 5) {
             return "V" + tekstiksi(luku - 5);
         }
         String pelle = "";

@@ -85,10 +85,29 @@ public class RoomalaisetNumerotTest {
     @Test
     public void nelkytToimii() {
         assertEquals("XL", rn.tekstiksi(40));
+   
     }
     
+    @Test
+    public void viiskytToimii() {
+        assertEquals("L", rn.tekstiksi(50));
+   
+    }
+    @Test
+    public void viidestäkymmenestäyhdestäKuuteenkymmeneenToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("L" + vastaukset[i - 1], rn.tekstiksi(50 + i));
+        }
+    }
+
     @Test(expected=IllegalArgumentException.class)
     public void negatiivinenFailaa() {
         rn.tekstiksi(-1);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void nollaFailaa() {
+        rn.tekstiksi(0);
     }
 }
