@@ -58,5 +58,22 @@ public class RoomalaisetNumerotTest {
         assertEquals("X", rn.tekstiksi(10));
     }
     
-    
+    @Test
+    public void yhdestätoistaKahteenkymmeneenToimii() {
+        
+        assertEquals("XI", rn.tekstiksi(11));
+        assertEquals("XII", rn.tekstiksi(12));
+        assertEquals("XIII", rn.tekstiksi(13));
+        assertEquals("XIV", rn.tekstiksi(14));
+        assertEquals("XV", rn.tekstiksi(15));
+        assertEquals("XVI", rn.tekstiksi(16));
+        assertEquals("XVII", rn.tekstiksi(17));
+        assertEquals("XVIII", rn.tekstiksi(18));
+        assertEquals("XIX", rn.tekstiksi(19));
+        assertEquals("XX", rn.tekstiksi(20));
+
+        
+        
+        
+    }
 }
