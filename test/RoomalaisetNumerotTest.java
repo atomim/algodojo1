@@ -81,18 +81,19 @@ public class RoomalaisetNumerotTest {
             assertEquals("XXX" + vastaukset[i - 1], rn.tekstiksi(30 + i));
         }
     }
-    
+
     @Test
     public void nelkytToimii() {
         assertEquals("XL", rn.tekstiksi(40));
-   
+
     }
-    
+
     @Test
     public void viiskytToimii() {
         assertEquals("L", rn.tekstiksi(50));
-   
+
     }
+
     @Test
     public void viidestäkymmenestäyhdestäKuuteenkymmeneenToimii() {
         String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
@@ -101,12 +102,36 @@ public class RoomalaisetNumerotTest {
         }
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test
+    public void kuudestakymmenestäSeitsemäänkymmeneenToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("LX" + vastaukset[i - 1], rn.tekstiksi(60 + i));
+        }
+    }
+
+    @Test
+    public void seitsemästäkymmenestäKahdeksaankymmeneenToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        for (int i = 1; i <= 10; i++) {
+            assertEquals("LXX" + vastaukset[i - 1], rn.tekstiksi(70 + i));
+        }
+    }
+
+    @Test
+    public void kahdeksastakymmenestäKahdeksaankymmeneenyhdeksäänToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        for (int i = 1; i <= 9; i++) {
+            assertEquals("LXXX" + vastaukset[i - 1], rn.tekstiksi(80 + i));
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void negatiivinenFailaa() {
         rn.tekstiksi(-1);
     }
-    
-    @Test(expected=IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void nollaFailaa() {
         rn.tekstiksi(0);
     }
