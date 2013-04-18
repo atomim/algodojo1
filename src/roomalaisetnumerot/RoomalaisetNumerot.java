@@ -13,7 +13,7 @@ public class RoomalaisetNumerot {
     private String rekursoi(int luku) {
         if (luku >= 10) {
             String lol = rekursoi(luku / 10);
-            lol = lol.replace("C", "M").replace("X", "C").replace("L", "D").replace("V", "L").replace("I", "X");
+            lol = lol.replace("C", "M").replace("X", "C").replace("I", "X").replace("L", "D").replace("V", "L");
             return lol + rekursoi(luku % 10);
         }
         String vastaukset[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
