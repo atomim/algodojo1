@@ -73,4 +73,12 @@ public class RoomalaisetNumerotTest {
             assertEquals("XX" + vastaukset[i - 1], rn.tekstiksi(20 + i));
         }
     }
+
+    @Test
+    public void kolmestyhestKolmeysiinToimii() {
+        String vastaukset[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        for (int i = 1; i <= 9; i++) {
+            assertEquals("XXX" + vastaukset[i - 1], rn.tekstiksi(30 + i));
+        }
+    }
 }
