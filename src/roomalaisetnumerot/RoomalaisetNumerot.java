@@ -33,9 +33,15 @@ public class RoomalaisetNumerot {
         if (luku == 100) {
             return "C";
         }
-
+        if (luku == 500) {
+            return "D";
+        }
+        
+        if (luku > 500) {
+            return ("D" + rekursoi(luku - 500)).replace("DCD", "CM");
+        }
         if (luku > 100) {
-            return ("C" + rekursoi(luku - 100));
+            return ("C" + rekursoi(luku - 100)).replace("CCCC", "CD");
         }
         if (luku > 50) {
             return ("L" + rekursoi(luku - 50)).replace("LXL", "XC");

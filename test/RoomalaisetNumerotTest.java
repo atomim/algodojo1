@@ -151,6 +151,28 @@ public class RoomalaisetNumerotTest {
             assertEquals("C" + vastaukset[i - 1], rn.tekstiksi(100 + i));
         }
     }
+    
+    @Test
+    public void pistokokeet() {
+        assertEquals("CXV", rn.tekstiksi(115));
+        assertEquals("CXXVII", rn.tekstiksi(127));
+        assertEquals("CXL", rn.tekstiksi(140));
+        assertEquals("CLXIX", rn.tekstiksi(169));
+        assertEquals("CXCII", rn.tekstiksi(192));
+    }
+    
+    @Test
+    public void sadatToimii() {
+        assertEquals("CC", rn.tekstiksi(200));
+        assertEquals("CCC", rn.tekstiksi(300));
+        assertEquals("CD", rn.tekstiksi(400));
+        assertEquals("D", rn.tekstiksi(500));
+        assertEquals("DC", rn.tekstiksi(600));
+        assertEquals("DCC", rn.tekstiksi(700));
+        assertEquals("DCCC", rn.tekstiksi(800));
+    }
+    
+   
 
     @Test(expected = IllegalArgumentException.class)
     public void negatiivinenFailaa() {
